@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/widget/CustomScrollViewDemo.dart';
+import 'package:flutter_app_demo/widget/custom_scrollview_demo.dart';
 
 void main() {
   runApp(MyApp());

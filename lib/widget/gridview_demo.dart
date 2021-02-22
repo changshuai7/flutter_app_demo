@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/data/ListData.dart';
+import 'package:flutter_app_demo/data/list_data.dart';
 
 //最简单的GridView
 class GridViewHomeContent1 extends StatelessWidget {
