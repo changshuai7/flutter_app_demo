@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/widget/custom_scrollview_demo.dart';
+import 'package:flutter_app_demo/widget/center_demo.dart';
+import 'package:flutter_app_demo/widget/custom_scroll_view_demo.dart';
+import 'package:flutter_app_demo/widget/grid_view_demo.dart';
+import 'package:flutter_app_demo/widget/list_view_demo.dart';
 
 void main() {
   runApp(MyApp());
