@@ -5,9 +5,7 @@ class ImageHomeContent1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var imageUrl =
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577359381804&di=bf467cdc5e6d366825a59ab4c1edc2bb&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2348394515%2C2895775719%26fm%3D214%26gp%3D0.jpg";
-    var imageUrl2 =
-        "http://pic.baike.soso.com/p/20130828/20130828161137-1346445960.jpg";
+        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
@@ -36,10 +34,7 @@ class ImageHomeContent1 extends StatelessWidget {
 class ImageHomeContent2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var imageUrl =
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577359381804&di=bf467cdc5e6d366825a59ab4c1edc2bb&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2348394515%2C2895775719%26fm%3D214%26gp%3D0.jpg";
-    var imageUrl2 =
-        "http://pic.baike.soso.com/p/20130828/20130828161137-1346445960.jpg";
+    var imageUrl = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
@@ -69,18 +64,13 @@ class ImageHomeContent2 extends StatelessWidget {
 class ImageHomeContent3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var imageUrl =
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577359381804&di=bf467cdc5e6d366825a59ab4c1edc2bb&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2348394515%2C2895775719%26fm%3D214%26gp%3D0.jpg";
-    var imageUrl2 =
-        "http://pic.baike.soso.com/p/20130828/20130828161137-1346445960.jpg";
-    var imageUrl3 =
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577958971&di=dbdc9d5c67a9de5afa16588d590a9e61&imgtype=jpg&er=1&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fbaike%2Fcrop%253D0%252C68%252C190%252C270%253Bw%253D138%253Bq%253D95%2Fsign%3D1a6070f50bfa513d45e5369e005d79cd%2Fb7003af33a87e950bec5164513385343faf2b4cd.jpg";
+    var imageUrl = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
         child: ClipOval(
           child: Image.network(
-            imageUrl3,
+            imageUrl,
             height: 200,
             width: 200,
             fit: BoxFit.cover,
