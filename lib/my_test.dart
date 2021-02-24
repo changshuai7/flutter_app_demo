@@ -4,6 +4,9 @@ import 'package:flutter_app_demo/data/list_data.dart';
 var url =
     'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
 
+var url2 =
+    'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20190403%2F20%2F1554295845-KCSgZfqjyN.jpg&refer=http%3A%2F%2Fimg.ewebweb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616733135&t=ec6ec0c2d58a52b591159b3df36823c7';
+
 class ContainerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -277,6 +280,111 @@ class ListViewDemo3 extends StatelessWidget {
       //   return getData2()[index];
       // },
       itemBuilder: _getItemWidget,
+    );
+  }
+}
+
+//动态数据GridView
+class GridViewDemo1 extends StatelessWidget {
+  List<Widget> _getData() {
+    return listData.map((item) {
+      return Container(
+        margin: EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: Colors.blueAccent,
+          border: Border.all(color: Colors.yellow, width: 4),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          item['title'],
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      );
+    }).toList();
+  }
+
+  List<Widget> _getData2() {
+    return listData.map((item) {
+      return Container(
+        margin: EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: Colors.blueAccent,
+          border: Border.all(color: Colors.yellow, width: 4),
+        ),
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            //第一行文字
+            Container(
+              width: double.infinity,
+              color: Colors.red,
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                item['title'],
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            Container(
+              width: double.infinity,
+              color: Colors.pinkAccent,
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+              child: Text(
+                'author:' + item['author'],
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 8,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                child: Image.network(
+                  item['imageUrl'],
+                  //url2,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            //下方图片
+          ],
+        ),
+      );
+    }).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.amber,
+      // child: GridView.count(
+      //   scrollDirection: Axis.vertical,
+      //   crossAxisCount: 2,
+      //   crossAxisSpacing: 2,
+      //   mainAxisSpacing: 2,
+      //   childAspectRatio: 0.7,
+      //   children: _getData2(),
+      // ),
+      child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+          ),
+          itemCount: _getData2().length,
+          itemBuilder: (context, index) {
+            return _getData2()[index];
+          }),
     );
   }
 }
