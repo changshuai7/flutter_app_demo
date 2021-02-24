@@ -1,11 +1,13 @@
 //远程图片
 import 'package:flutter/material.dart';
 
+var imageUrl =
+    'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
+
 class ImageHomeContent1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var imageUrl =
-        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
+
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
@@ -34,7 +36,6 @@ class ImageHomeContent1 extends StatelessWidget {
 class ImageHomeContent2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var imageUrl = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
@@ -64,7 +65,6 @@ class ImageHomeContent2 extends StatelessWidget {
 class ImageHomeContent3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var imageUrl = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2207136865,1222916190&fm=26&gp=0.jpg';
     return Center(
       //建议把图片放在一个Container中，可以控制图片的显示位置、方式等。
       child: Container(
