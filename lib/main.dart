@@ -10,6 +10,7 @@ import 'package:flutter_app_demo/widget/image_demo.dart';
 import 'package:flutter_app_demo/widget/list_view_demo.dart';
 import 'package:flutter_app_demo/widget/padding_demo.dart';
 import 'package:flutter_app_demo/widget/stack_demo.dart';
+import 'package:flutter_app_demo/widget/wrap_demo.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("MyFlutter"),
         ),
-        body: CircleAvatarDemo1(),
+        body: WrapDemo1(),
       ),
       theme: ThemeData(
         primarySwatch: Colors.green,
