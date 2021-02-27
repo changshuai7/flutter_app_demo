@@ -164,7 +164,7 @@ class ListViewHomeContent5 extends StatelessWidget {
 
 //通过ListView.builder动态添加列表数据
 class ListViewHomeContent6 extends StatelessWidget {
-  List<String> list = new List();
+  final List<String> list = new List();
 
   //通过构造方法先初始化数据
   ListViewHomeContent6() {
