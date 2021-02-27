@@ -9,6 +9,7 @@ import 'package:flutter_app_demo/widget/grid_view_demo.dart';
 import 'package:flutter_app_demo/widget/image_demo.dart';
 import 'package:flutter_app_demo/widget/list_view_demo.dart';
 import 'package:flutter_app_demo/widget/padding_demo.dart';
+import 'package:flutter_app_demo/widget/st_full_demo.dart';
 import 'package:flutter_app_demo/widget/stack_demo.dart';
 import 'package:flutter_app_demo/widget/wrap_demo.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("MyFlutter"),
         ),
-        body: WrapDemo1(),
+        body: STFullDemo3(),
       ),
       theme: ThemeData(
         primarySwatch: Colors.green,
