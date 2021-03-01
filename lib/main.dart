@@ -11,10 +11,12 @@ import 'package:flutter_app_demo/widget/list_view_demo.dart';
 import 'package:flutter_app_demo/widget/padding_demo.dart';
 import 'package:flutter_app_demo/widget/st_full_demo.dart';
 import 'package:flutter_app_demo/widget/stack_demo.dart';
+import 'package:flutter_app_demo/widget/tab_app_demo.dart';
 import 'package:flutter_app_demo/widget/wrap_demo.dart';
 
 void main() {
-  runApp(MyApp());
+  //runApp(MyApp());
+  runApp(TabAppDemo());
 }
 
 class MyApp extends StatelessWidget {
