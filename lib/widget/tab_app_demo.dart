@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(TabAppDemo());
+}
+
+
 class TabAppDemo extends StatefulWidget {
   @override
   _TabAppDemoState createState() => _TabAppDemoState();
