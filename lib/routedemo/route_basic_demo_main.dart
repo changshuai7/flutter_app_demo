@@ -27,8 +27,6 @@ class BasicRoutePageHome extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           child: Text('跳转到新页面'),
-          color: Theme.of(context).accentColor,
-          textTheme: ButtonTextTheme.primary,
           onPressed: () {
             //导航到新路由
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
