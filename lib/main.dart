@@ -14,7 +14,7 @@ import 'package:flutter_app_demo/widget/stack_demo.dart';
 import 'package:flutter_app_demo/widget/wrap_demo.dart';
 
 void main() {
-  //runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
