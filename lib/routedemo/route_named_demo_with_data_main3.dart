@@ -7,6 +7,7 @@ void main() {
 //维护一个路由配置Map
 //key为路由名称，value为创建路由对象并传递参数的的Function
 var routeConfig = {
+  NamedRoutePageHome.routeName: () => NamedRoutePageHome(),
   NamedRoutePageNext.routeName: ({args}) => NamedRoutePageNext(args: args),
 };
 
@@ -14,7 +15,8 @@ class NamedRouteDemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: NamedRoutePageHome(),
+      //初始化的时候加载的路由
+      initialRoute: NamedRoutePageHome.routeName,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -36,6 +38,8 @@ class NamedRouteDemoApp extends StatelessWidget {
 }
 
 class NamedRoutePageHome extends StatelessWidget {
+  static const routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
