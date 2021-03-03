@@ -35,7 +35,7 @@ class NamedRoutePageHome extends StatelessWidget {
               child: Text('跳转到新页面'),
               onPressed: () {
                 //导航到新路由
-                Navigator.pushNamed(context, NamedRoutePageNext.routeName);
+                Navigator.of(context).pushNamed(NamedRoutePageNext.routeName);
               },
             ),
           ],
