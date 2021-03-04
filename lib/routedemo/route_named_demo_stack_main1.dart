@@ -11,7 +11,7 @@ var routeConfig = {
   NamedRoutePageNext3.routeName: (context) => NamedRoutePageNext3(),
 };
 
-// 命名路由演示
+// 【PushAndRemoveUntil演示】
 class NamedRouteDemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
