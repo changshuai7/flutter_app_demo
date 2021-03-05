@@ -61,9 +61,9 @@ class AppBarPage extends StatelessWidget {
           ),
           //切换tab的view
           body: TabBarView(children: <Widget>[
-            Tab(text: 'PageA'),
-            Tab(text: 'PageB'),
-            Tab(text: 'PageC'),
+            Text('PageA'),
+            Text('PageB'),
+            Text('PageC'),
           ]),
         ));
   }
