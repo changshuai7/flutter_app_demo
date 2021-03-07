@@ -22,6 +22,11 @@ class ButtonDemo extends StatelessWidget {
             style: TextStyle(color: Colors.red),
           ),
           BtnTest(),
+          Text(
+            '-------- ShapeBorder测试 --------',
+            style: TextStyle(color: Colors.red),
+          ),
+          ShapeBorderTest(),
         ],
       ),
     );
@@ -136,6 +141,60 @@ class BtnTest extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class ShapeBorderTest extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        MyShapeBtn(
+            BeveledRectangleBorder(
+                side: BorderSide(color: Colors.red, width: 1),
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            'BeveledRectangleBorder'),
+        MyShapeBtn(
+            CircleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+            ),
+            'CircleBorder'),
+        MyShapeBtn(
+            RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            'RoundedRectangleBorder'),
+        MyShapeBtn(
+            StadiumBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+            ),
+            'StadiumBorder'),
+      ],
+    );
+  }
+}
+
+class MyShapeBtn extends StatelessWidget {
+  final ShapeBorder shape;
+  final String des;
+
+  MyShapeBtn(this.shape, this.des);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      child: Container(
+        width: 200,
+        height: 50,
+        child: RaisedButton(
+          shape: this.shape,
+          onPressed: () {},
+          child: Text(this.des),
+        ),
+      ),
     );
   }
 }
