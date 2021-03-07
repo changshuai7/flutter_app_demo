@@ -81,17 +81,17 @@ class BtnShowWithIcon extends StatelessWidget {
         SizedBox(
           width: 5,
         ),
-        OutlineButton.icon(
-          icon: Icon(Icons.add),
-          label: Text("添加"),
+        FlatButton.icon(
+          icon: Icon(Icons.info),
+          label: Text("详情"),
           onPressed: () {},
         ),
         SizedBox(
           width: 5,
         ),
-        FlatButton.icon(
-          icon: Icon(Icons.info),
-          label: Text("详情"),
+        OutlineButton.icon(
+          icon: Icon(Icons.add),
+          label: Text("添加"),
           onPressed: () {},
         ),
       ],
