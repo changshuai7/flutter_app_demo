@@ -5,25 +5,25 @@ class ButtonDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(20),
-      child: Column(
+      child: ListView(
         children: [
           Text(
-            '-------- Button演示 --------',
+            '\nButton演示:\n',
             style: TextStyle(color: Colors.red),
           ),
           BtnShow(),
           Text(
-            '-------- Button带图标演示 --------',
+            '\nButton带图标演示:\n',
             style: TextStyle(color: Colors.red),
           ),
           BtnShowWithIcon(),
           Text(
-            '-------- Button测试 --------',
+            '\nButton测试:\n',
             style: TextStyle(color: Colors.red),
           ),
           BtnTest(),
           Text(
-            '-------- ShapeBorder测试 --------',
+            '\nShapeBorder测试:\n',
             style: TextStyle(color: Colors.red),
           ),
           ShapeBorderTest(),
