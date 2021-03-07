@@ -153,7 +153,7 @@ class ShapeBorderTest extends StatelessWidget {
         MyShapeBtn(
             BeveledRectangleBorder(
                 side: BorderSide(color: Colors.red, width: 1),
-                borderRadius: BorderRadius.all(Radius.circular(10))),
+                borderRadius: BorderRadius.circular(10)),
             'BeveledRectangleBorder'),
         MyShapeBtn(
             CircleBorder(
@@ -163,7 +163,7 @@ class ShapeBorderTest extends StatelessWidget {
         MyShapeBtn(
             RoundedRectangleBorder(
               side: BorderSide(color: Colors.red, width: 1),
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.circular(10),
             ),
             'RoundedRectangleBorder'),
         MyShapeBtn(
