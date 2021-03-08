@@ -10,7 +10,7 @@ class ContainerAndTextHomeContent extends StatelessWidget {
         //child对其方式为：居中
         alignment: Alignment.center,
         //外边距为12
-        margin: EdgeInsets.only(top: 12),
+        margin: EdgeInsets.all(12),
         //内边距
         padding: EdgeInsets.fromLTRB(10, 10, 20, 20),
         //高度
