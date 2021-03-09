@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("TextFieldDemo"),
+          title: Text("CheckBoxDemo"),
         ),
         body: CheckBoxListTileDemo(),
       ),
