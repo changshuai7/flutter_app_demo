@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("TextFieldDemo"),
         ),
-        body: TextFieldDemo(),
+        body: TextFieldControllerDemo(),
       ),
     );
   }
@@ -302,7 +302,17 @@ class TextFieldControllerDemo extends StatefulWidget {
 }
 
 class _TextFieldControllerDemoState extends State<TextFieldControllerDemo> {
-  TextEditingController _controller = TextEditingController();
+  TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: '默认值');
+    //监听输入改变
+    _controller.addListener(() {
+      print('输入改变：${_controller.text}');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
