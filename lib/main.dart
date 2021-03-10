@@ -21,9 +21,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //return HomeContent();
     return MaterialApp(
-      //页面信息
       home: Scaffold(
         appBar: AppBar(
           title: Text("MyFlutter"),
