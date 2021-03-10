@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/api/date_time_demo.dart';
 import 'package:flutter_app_demo/data/list_data.dart';
 import 'package:flutter_app_demo/widget/aspect_ratio.dart';
 import 'package:flutter_app_demo/widget/button_demo.dart';
@@ -22,14 +23,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("MyFlutter"),
         ),
-        body: ButtonDemo(),
-      ),
-      theme: ThemeData(
-        primarySwatch: Colors.green,
+        body: DateTimeDemo(),
       ),
     );
   }
