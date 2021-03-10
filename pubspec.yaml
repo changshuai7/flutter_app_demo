@@ -23,7 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations: # 添加
+    sdk: flutter         # 添加
   date_format: ^1.0.9
 
 

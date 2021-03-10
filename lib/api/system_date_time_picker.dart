@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart'; //国际化
 
 void main() {
   runApp(MyApp());
@@ -16,32 +16,22 @@ class MyApp extends StatelessWidget {
         ),
         body: SystemDateTimePickerDemo(),
       ),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('zh', 'CH'),
+        const Locale('en', 'US'),
+      ],
     );
-  }
-}
-
-class Btn extends StatelessWidget {
-  final onPress;
-  final String text;
-
-  Btn(this.text, {this.onPress});
-
-  @override
-  Widget build(BuildContext context) {
-    return RaisedButton(
-        child: Text(
-          this.text,
-          textAlign: TextAlign.center,
-        ),
-        color: Theme.of(context).accentColor,
-        colorBrightness: Brightness.dark,
-        onPressed: this.onPress);
   }
 }
 
 class SystemDateTimePickerDemo extends StatefulWidget {
   @override
-  _SystemDateTimePickerDemoState createState() => _SystemDateTimePickerDemoState();
+  _SystemDateTimePickerDemoState createState() =>
+      _SystemDateTimePickerDemoState();
 }
 
 class _SystemDateTimePickerDemoState extends State<SystemDateTimePickerDemo> {
@@ -63,7 +53,6 @@ class _SystemDateTimePickerDemoState extends State<SystemDateTimePickerDemo> {
   //调起日期选择器
   _showDatePicker() {
     showDatePicker(
-      context: context,
       // initialEntryMode: DatePickerEntryMode.calendar,
       // initialDatePickerMode: DatePickerMode.day,
       // builder: (BuildContext context, Widget child) {
@@ -75,9 +64,11 @@ class _SystemDateTimePickerDemoState extends State<SystemDateTimePickerDemo> {
       // helpText: 'HelloWorld',
       // confirmText: 'My-Confirm',
       // cancelText: 'My-Cancel',
+      context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
+      //locale: Locale('zh'),
       selectableDayPredicate: (DateTime day) {
         return day.difference(DateTime.now()).inDays < 2;
       },
@@ -91,9 +82,9 @@ class _SystemDateTimePickerDemoState extends State<SystemDateTimePickerDemo> {
   //调起时间选择器
   _showTimePicker() {
     showTimePicker(
+      // initialEntryMode: TimePickerEntryMode.dial,
       context: context,
       initialTime: TimeOfDay.now(),
-      // initialEntryMode: TimePickerEntryMode.dial,
     ).then((result) {
       setState(() {
         this.timeResult = result?.format(context)?.toString();
@@ -121,5 +112,24 @@ class _SystemDateTimePickerDemoState extends State<SystemDateTimePickerDemo> {
         ],
       ),
     );
+  }
+}
+
+class Btn extends StatelessWidget {
+  final onPress;
+  final String text;
+
+  Btn(this.text, {this.onPress});
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+        child: Text(
+          this.text,
+          textAlign: TextAlign.center,
+        ),
+        color: Theme.of(context).accentColor,
+        colorBrightness: Brightness.dark,
+        onPressed: this.onPress);
   }
 }
