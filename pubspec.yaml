@@ -26,6 +26,7 @@ dependencies:
   flutter_localizations: # 添加
     sdk: flutter         # 添加
   date_format: ^1.0.9
+  flutter_swiper: ^1.1.6
 
 
   # The following adds the Cupertino Icons font to your application.
