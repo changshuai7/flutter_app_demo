@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/api/date_time_demo.dart';
+import 'package:flutter_app_demo/api/json_demo.dart';
 import 'package:flutter_app_demo/data/list_data.dart';
 import 'package:flutter_app_demo/dialog/dialog_demo.dart';
 import 'package:flutter_app_demo/widget/aspect_ratio.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("MyFlutter"),
         ),
-        body: SystemDialogDemo(),
+        body: JsonDemo(),
       ),
     );
   }
