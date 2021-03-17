@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Model1 extends ChangeNotifier {
-  int _count = 0;
+  int _count = 0; //需要设置初始化值
 
   int get count => _count;
 
@@ -12,12 +12,20 @@ class Model1 extends ChangeNotifier {
 }
 
 class Model2 extends ChangeNotifier {
-  int _count = 0;
+  String _title = '';
+  String _subTitle = '';
 
-  int get count => _count;
+  String get title => _title;
 
-  void increase() {
-    _count++;
+  String get subTitle => _subTitle;
+
+  void setSubTitle(String value) {
+    this._subTitle = value;
+    notifyListeners();
+  }
+
+  void setTitle(String value) {
+    this._title = value;
     notifyListeners();
   }
 }

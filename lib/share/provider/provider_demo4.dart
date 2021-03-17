@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/share/provider/notify_model.dart';
 import 'package:provider/provider.dart';
 
-///
-///
-/// 单个/多个Consumer基本使用
-///
-///
 
+///
+///
+/// Consumer数据更新排除child
+///
+///
 void main() {
   runApp(MyApp());
 }
@@ -30,41 +30,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ContentWidget1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    print('执行ContentWidget的build');
-    return Column(
-      children: [
-        Consumer<Model1>(builder: (ctx, value, child) {
-          print('执行Text1更新');
-          return Text('结果1：${ctx.watch<Model1>().count}');
-        }),
-        Consumer<Model1>(builder: (ctx, value, child) {
-          print('执行Text2更新');
-          return Text('结果2：${ctx.watch<Model1>().count}');
-        }),
-        RaisedButton(
-          child: Text('点击增加'),
-          onPressed: () {
-            context.read<Model1>().increase();
-          },
-        )
-      ],
-    );
-  }
-}
-
 class ContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('执行ContentWidget的build');
     return Column(
       children: [
-        Consumer<Model1>(builder: (ctx, value, child) {
-          print('执行Text更新');
-          return Text('结果:${ctx.watch<Model1>().count}');
-        }),
+        Consumer<Model1>(
+          builder: (ctx, value, child) {
+            print('执行Text更新');
+            return ListTile(
+              title: Text('主标题：${value.count}'),
+              subtitle: child,
+            );
+          },
+          child: MyText(),
+        ),
         RaisedButton(
           child: Text('点击增加'),
           onPressed: () {
@@ -76,3 +57,11 @@ class ContentWidget extends StatelessWidget {
   }
 }
 
+class MyText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('执行TextContent的build');
+    return Text('我是副标题');
+    //return Text('我是副标题：${context.watch<Model1>().count}');
+  }
+}
