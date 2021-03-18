@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/share/provider/notify_model.dart';
 import 'package:provider/provider.dart';
 
-
 ///
 ///
 /// Consumer数据更新排除child
@@ -38,10 +37,12 @@ class ContentWidget extends StatelessWidget {
       children: [
         Consumer<Model1>(
           builder: (ctx, value, child) {
-            print('执行Text更新');
-            return ListTile(
-              title: Text('主标题：${value.count}'),
-              subtitle: child,
+            print('执行builder');
+            return Column(
+              children: [
+                Text('${value.count}'),
+                child,
+              ],
             );
           },
           child: MyText(),
@@ -61,7 +62,6 @@ class MyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('执行MyText的build');
-    return Text('副标题');
-    //return Text('我是副标题：${context.watch<Model1>().count}');
+    return Text('MyText');
   }
 }
