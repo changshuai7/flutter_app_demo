@@ -62,7 +62,7 @@ class MyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('执行MyText的build');
-    // return Text('MyText');
-    return Text('${context.watch<Model1>().count}');
+    return Text('MyText');
+    // return Text('${context.watch<Model1>().count}');
   }
 }
