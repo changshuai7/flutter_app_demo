@@ -30,6 +30,27 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class ContentWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('执行ContentWidget的build');
+    return Column(
+      children: [
+        Consumer<Model1>(builder: (ctx, value, child) {
+          print('执行Text更新');
+          return Text('结果:${ctx.watch<Model1>().count}');
+        }),
+        RaisedButton(
+          child: Text('点击增加'),
+          onPressed: () {
+            context.read<Model1>().increase();
+          },
+        )
+      ],
+    );
+  }
+}
+
 class ContentWidget1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,27 +64,6 @@ class ContentWidget1 extends StatelessWidget {
         Consumer<Model1>(builder: (ctx, value, child) {
           print('执行Text2更新');
           return Text('结果2：${ctx.watch<Model1>().count}');
-        }),
-        RaisedButton(
-          child: Text('点击增加'),
-          onPressed: () {
-            context.read<Model1>().increase();
-          },
-        )
-      ],
-    );
-  }
-}
-
-class ContentWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    print('执行ContentWidget的build');
-    return Column(
-      children: [
-        Consumer<Model1>(builder: (ctx, value, child) {
-          print('执行Text更新');
-          return Text('结果:${ctx.watch<Model1>().count}');
         }),
         RaisedButton(
           child: Text('点击增加'),
