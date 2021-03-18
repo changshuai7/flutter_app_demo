@@ -65,6 +65,17 @@ class MyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('执行MyText的build');
+    // return Consumer<Model2>(
+    //     builder: (_, value, child) =>
+    //         Text('副标题：${context.watch<Model2>().subTitle}'));
+    return MyText1();
+  }
+}
+
+class MyText1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('执行MyText1的build');
     return Consumer<Model2>(
         builder: (_, value, child) =>
             Text('副标题：${context.watch<Model2>().subTitle}'));
