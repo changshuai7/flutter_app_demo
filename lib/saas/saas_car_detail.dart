@@ -48,33 +48,35 @@ class SaasCarDetail extends StatelessWidget {
                   deliveryTime: '2010年9月',
                   transportTestExpire: '2021年12月2021年12月2021年12月-测试溢出',
                   compulsoryInsuranceExpire: '2022年5月',
-                  vehicleConditionDescription:'该车原厂原漆，外观无瑕疵，外观无更换；灯光系统正常；内饰整洁；电子系统正常；发动机、变速箱工况正常，怠速规律无抖动，转向灵活；综合车况优秀。'
-              ),
+                  vehicleConditionDescription:
+                      '该车原厂原漆，外观无瑕疵，外观无更换；灯光系统正常；内饰整洁；电子系统正常；发动机、变速箱工况正常，怠速规律无抖动，转向灵活；综合车况优秀。'),
             ),
           ],
           child: Container(
             color: Color(0xFFF8F8FA),
-            child: ListView(
-              children: [
-                SaasCarDetailBanner(),
-                SaasCarDetailBusinessInfo(),
-                SizedBox(
-                  height: 10,
-                ),
-                SaasCarDetailQueryRecords(),
-                SizedBox(
-                  height: 10,
-                ),
-                SaasCarDetailCarInfo(),
-                SizedBox(
-                  height: 10,
-                ),
-                SaasCarDetailCarInfoDes(),
-                SizedBox(
-                  height: 10,
-                ),
-                SaasCarDetailBottomBtn(),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SaasCarDetailBanner(),
+                  SaasCarDetailBusinessInfo(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SaasCarDetailQueryRecords(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SaasCarDetailCarInfo(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SaasCarDetailCarInfoDes(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SaasCarDetailBottomBtn(),
+                ],
+              ),
             ),
           )),
     );
