@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/saas/provider/saas_car_detail_model.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
+
+import 'provider/saas_car_detail_model.dart';
 
 /// Banner Swiper
 /// 用于展示saas详情页顶部轮播图

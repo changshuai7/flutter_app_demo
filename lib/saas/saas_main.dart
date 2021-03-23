@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/saas/saas_car_detail.dart';
+
+import 'saas_car_detail.dart';
 
 main() {
   runApp(SaasApp());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/saas/provider/saas_car_detail_model.dart';
-import 'package:flutter_app_demo/saas/saas_car_detail_banner.dart';
-import 'package:flutter_app_demo/saas/saas_car_detail_business_info.dart';
 import 'package:provider/provider.dart';
 
+import 'provider/saas_car_detail_model.dart';
+import 'saas_car_detail_banner.dart';
+import 'saas_car_detail_business_info.dart';
 import 'saas_car_detail_car_info.dart';
 
 class SaasCarDetail extends StatelessWidget {
