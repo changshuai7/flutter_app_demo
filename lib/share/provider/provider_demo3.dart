@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         body: ChangeNotifierProvider(
           create: (_) => Model1(),
-          child: ContentWidget(),
+          child: ContentWidget1(),
         ),
       ),
     );
@@ -38,7 +38,7 @@ class ContentWidget extends StatelessWidget {
       children: [
         Consumer<Model1>(builder: (ctx, value, child) {
           print('执行Text更新');
-          return Text('结果:${ctx.watch<Model1>().count}');
+          return Text('结果:${value.count}');
         }),
         RaisedButton(
           child: Text('点击增加'),
@@ -59,11 +59,11 @@ class ContentWidget1 extends StatelessWidget {
       children: [
         Consumer<Model1>(builder: (ctx, value, child) {
           print('执行Text1更新');
-          return Text('结果1：${ctx.watch<Model1>().count}');
+          return Text('结果1：${value.count}');
         }),
         Consumer<Model1>(builder: (ctx, value, child) {
           print('执行Text2更新');
-          return Text('结果2：${ctx.watch<Model1>().count}');
+          return Text('结果2：${value.count}');
         }),
         RaisedButton(
           child: Text('点击增加'),

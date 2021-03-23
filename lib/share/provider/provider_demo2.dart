@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 ///
 ///
-/// 建议使用Provider
+/// 简易使用Provider
 ///
 ///
 void main() {
