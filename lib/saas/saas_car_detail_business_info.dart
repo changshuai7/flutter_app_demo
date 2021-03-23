@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/saas/provider/saas_car_detail_model.dart';
 import 'package:provider/provider.dart';
 
-///车辆信息数据
+import 'common/saas_car_detail_common_widget.dart';
+
+///车辆业务信息数据
 class SaasCarDetailBusinessInfo extends StatefulWidget {
   @override
   _SaasCarDetailBusinessInfoState createState() => _SaasCarDetailBusinessInfoState();
@@ -326,29 +328,6 @@ class InfoWidget extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class TextItem extends StatelessWidget {
-  final String itemKey;
-  final String itemValue;
-
-  TextItem(this.itemKey, this.itemValue);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          this.itemKey,
-          style: TextStyle(color: Colors.grey),
-        ),
-        SizedBox(
-          width: 8,
-        ),
-        Text(this.itemValue)
-      ],
     );
   }
 }

@@ -48,7 +48,31 @@ class CarDetailBean extends ChangeNotifier {
   String rrcId; //车源编号
 
   @JsonKey(name: 'is_contact_owner')
-  bool isContactOwner;//是否能够联系车主
+  bool isContactOwner; //是否能够联系车主
+
+  @JsonKey(name: 'mileage')
+  String mileage; //行程里数
+
+  @JsonKey(name: 'first_licensed_date')
+  String firstLicensedDate; //首次上牌时间
+
+  @JsonKey(name: 'transfer_times')
+  String transferTimes; //过户次数
+
+  @JsonKey(name: 'license_city')
+  String licenseCity; //上牌城市
+
+  @JsonKey(name: 'displacement')
+  String displacement; //排量
+
+  @JsonKey(name: 'delivery_time')
+  String deliveryTime; //出厂时间
+
+  @JsonKey(name: 'transport_test_expire')
+  String transportTestExpire; //年检到期时间
+
+  @JsonKey(name: 'compulsory_insurance_expire')
+  String compulsoryInsuranceExpire; //强险到期时间
 
   void update() {
     notifyListeners();
@@ -69,6 +93,14 @@ class CarDetailBean extends ChangeNotifier {
     this.ownVehicleId = '',
     this.rrcId = '',
     this.isContactOwner = false,
+    this.mileage = '',
+    this.firstLicensedDate = '',
+    this.transferTimes = '',
+    this.licenseCity = '',
+    this.displacement = '',
+    this.deliveryTime = '',
+    this.transportTestExpire = '',
+    this.compulsoryInsuranceExpire = '',
   });
 
   ////////////////// fromJson & toJson //////////////////
