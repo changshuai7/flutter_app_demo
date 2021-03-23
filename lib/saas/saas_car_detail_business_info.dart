@@ -243,7 +243,7 @@ class InfoWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        TextItem('车车号    ', '${allData.ownVehicleId}'),
+                        TextItem('车车号    ', '${allData.ownVehicleId}',itemValueIsExpanded: false,),
                         SizedBox(
                           width: 5,
                         ),
@@ -265,7 +265,7 @@ class InfoWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        TextItem('车源编号', '${allData.rrcId}'),
+                        TextItem('车源编号', '${allData.rrcId}',itemValueIsExpanded: false,),
                         SizedBox(
                           width: 5,
                         ),
