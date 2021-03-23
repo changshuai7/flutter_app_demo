@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo/saas/provider/saas_car_detail_model.dart';
 import 'package:flutter_app_demo/saas/saas_car_detail_banner.dart';
-import 'package:flutter_app_demo/saas/saas_car_detail_info.dart';
+import 'package:flutter_app_demo/saas/saas_car_detail_business_info.dart';
 import 'package:provider/provider.dart';
 
 class SaasCarDetail extends StatelessWidget {
@@ -37,7 +37,7 @@ class SaasCarDetail extends StatelessWidget {
         child: Column(
           children: [
             SaasCarDetailBanner(),
-            SaasCarDetailInfo(),
+            SaasCarDetailBusinessInfo(),
           ],
         ),
       ),

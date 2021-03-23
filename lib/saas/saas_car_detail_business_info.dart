@@ -3,12 +3,12 @@ import 'package:flutter_app_demo/saas/provider/saas_car_detail_model.dart';
 import 'package:provider/provider.dart';
 
 ///车辆信息数据
-class SaasCarDetailInfo extends StatefulWidget {
+class SaasCarDetailBusinessInfo extends StatefulWidget {
   @override
-  _SaasCarDetailInfoState createState() => _SaasCarDetailInfoState();
+  _SaasCarDetailBusinessInfoState createState() => _SaasCarDetailBusinessInfoState();
 }
 
-class _SaasCarDetailInfoState extends State<SaasCarDetailInfo> {
+class _SaasCarDetailBusinessInfoState extends State<SaasCarDetailBusinessInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
