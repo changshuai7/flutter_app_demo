@@ -14,8 +14,12 @@ class _SaasCarDetailCarInfoState extends State<SaasCarDetailCarInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.grey,
-      color: Colors.white,
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+            side: BorderSide.none,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          color: Colors.white),
       width: double.infinity,
       padding: EdgeInsets.all(16),
       child: Consumer<CarDetailBean>(

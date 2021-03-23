@@ -7,17 +7,21 @@ import 'provider/saas_car_detail_model.dart';
 ///车辆业务信息数据
 class SaasCarDetailBusinessInfo extends StatefulWidget {
   @override
-  _SaasCarDetailBusinessInfoState createState() => _SaasCarDetailBusinessInfoState();
+  _SaasCarDetailBusinessInfoState createState() =>
+      _SaasCarDetailBusinessInfoState();
 }
 
 class _SaasCarDetailBusinessInfoState extends State<SaasCarDetailBusinessInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.grey,
-      color: Colors.white,
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+            side: BorderSide.none,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          color: Colors.white),
       width: double.infinity,
-      //height: 362,
       padding: EdgeInsets.all(16),
       child: Column(
         children: [

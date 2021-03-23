@@ -74,6 +74,9 @@ class CarDetailBean extends ChangeNotifier {
   @JsonKey(name: 'compulsory_insurance_expire')
   String compulsoryInsuranceExpire; //强险到期时间
 
+  @JsonKey(name: 'vehicle_condition_description')
+  String vehicleConditionDescription; //车况描述
+
   void update() {
     notifyListeners();
   }
@@ -101,6 +104,7 @@ class CarDetailBean extends ChangeNotifier {
     this.deliveryTime = '',
     this.transportTestExpire = '',
     this.compulsoryInsuranceExpire = '',
+    this.vehicleConditionDescription = '',
   });
 
   ////////////////// fromJson & toJson //////////////////
