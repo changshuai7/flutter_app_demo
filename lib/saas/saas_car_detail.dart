@@ -20,9 +20,9 @@ class SaasCarDetail extends StatelessWidget {
               create: (_) => CarDetailBean(
                   selfCarImage: [
                     SelfCarImageBean(
-                        '名字1', ['https://www.itying.com/images/flutter/1.png']),
+                        '名字1', ['https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ffsimg1.xbdedu.cn%2F2018%2F02%2Fimg_5a967f39c20e4.png&refer=http%3A%2F%2Ffsimg1.xbdedu.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619101792&t=f0aaf231f2d639cef042cd1cd4272a36']),
                     SelfCarImageBean(
-                        '名字2', ['https://www.itying.com/images/flutter/2.png'])
+                        '名字2', ['https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2F0w%2Fri%2FQJ6164928400.jpg&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619101943&t=0a7853d5e3b4086c2068586096d48142'])
                   ],
                   sourceTags: [
                     '人人车派单',
