@@ -15,7 +15,7 @@ class _SaasCarDetailBannerState extends State<SaasCarDetailBanner> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 16 / 9,
+      aspectRatio: 3 / 2,
       child: Stack(
         children: [
           /// 第一层：轮播
