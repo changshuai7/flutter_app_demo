@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'provider/saas_car_detail_model.dart';
 import 'saas_car_detail_banner.dart';
+import 'saas_car_detail_bottom_btn.dart';
 import 'saas_car_detail_business_info.dart';
 import 'saas_car_detail_car_info.dart';
 import 'saas_car_detail_car_info_des.dart';
@@ -69,6 +70,10 @@ class SaasCarDetail extends StatelessWidget {
                   height: 10,
                 ),
                 SaasCarDetailCarInfoDes(),
+                SizedBox(
+                  height: 10,
+                ),
+                SaasCarDetailBottomBtn(),
               ],
             ),
           )),

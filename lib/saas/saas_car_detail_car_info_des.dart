@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'common/saas_car_detail_common_widget.dart';
 import 'provider/saas_car_detail_model.dart';
 
-///车辆信息数据
+///车辆车况描述
 class SaasCarDetailCarInfoDes extends StatefulWidget {
   @override
   _SaasCarDetailCarInfoDesState createState() => _SaasCarDetailCarInfoDesState();
