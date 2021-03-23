@@ -39,15 +39,17 @@ class _SaasCarDetailBannerState extends State<SaasCarDetailBanner> {
                 ),
                 onPressed: () {
                   // Navigator.of(context).maybePop();
-                  context
-                      .read<CarDetailBean>()
-                      .selfCarImage[0]
-                      .value
-                      .add('https://www.itying.com/images/flutter/1.png');
+                  // context
+                  //     .read<CarDetailBean>()
+                  //     .selfCarImage[0]
+                  //     .value
+                  //     .add('https://www.itying.com/images/flutter/1.png');
 
                   // context.read<CarDetailBean>().selfCarImage.add(SelfCarImageBean('demo', ['https://www.itying.com/images/flutter/5.png']));
 
-                  context.read<CarDetailBean>().auditStatus = '';
+                  // context.read<CarDetailBean>().auditStatus = '';
+                  // context.read<CarDetailBean>().sourceTags.add('hello');
+                  context.read<CarDetailBean>().isContactOwner = true;
                   context.read<CarDetailBean>().update();
                 }),
           )

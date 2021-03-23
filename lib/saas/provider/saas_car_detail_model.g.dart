@@ -15,6 +15,8 @@ CarDetailBean _$CarDetailBeanFromJson(Map<String, dynamic> json) {
     auditStatus: json['audit_status'] as String,
     sourceTags:
         (json['source'] as List<dynamic>).map((e) => e as String).toList(),
+    title: json['title'] as String,
+    city: json['city'] as String,
   );
 }
 
@@ -23,6 +25,8 @@ Map<String, dynamic> _$CarDetailBeanToJson(CarDetailBean instance) =>
       'self_car_image': instance.selfCarImage,
       'audit_status': instance.auditStatus,
       'source': instance.sourceTags,
+      'title': instance.title,
+      'city': instance.city,
     };
 
 SelfCarImageBean _$SelfCarImageBeanFromJson(Map<String, dynamic> json) {
