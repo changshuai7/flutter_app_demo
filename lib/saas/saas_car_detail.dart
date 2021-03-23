@@ -19,7 +19,7 @@ class SaasCarDetail extends StatelessWidget {
                 SelfCarImageBean(
                     '名字2', ['https://www.itying.com/images/flutter/2.png'])
               ],
-              sourceTag: ['人人车派单','自建','闪卖']
+              sourceTags: ['人人车派单','自建','闪卖']
             ),
           ),
         ],

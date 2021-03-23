@@ -9,9 +9,12 @@ part of 'saas_car_detail_model.dart';
 
 CarDetailBean _$CarDetailBeanFromJson(Map<String, dynamic> json) {
   return CarDetailBean(
-    selfCarImage: json['self_car_image'],
-    auditStatus: json['audit_status'],
-    sourceTag: json['source'],
+    selfCarImage: (json['self_car_image'] as List<dynamic>)
+        .map((e) => SelfCarImageBean.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    auditStatus: json['audit_status'] as String,
+    sourceTags:
+        (json['source'] as List<dynamic>).map((e) => e as String).toList(),
   );
 }
 
@@ -19,7 +22,7 @@ Map<String, dynamic> _$CarDetailBeanToJson(CarDetailBean instance) =>
     <String, dynamic>{
       'self_car_image': instance.selfCarImage,
       'audit_status': instance.auditStatus,
-      'source': instance.sourceTag,
+      'source': instance.sourceTags,
     };
 
 SelfCarImageBean _$SelfCarImageBeanFromJson(Map<String, dynamic> json) {

@@ -15,7 +15,7 @@ class CarDetailBean extends ChangeNotifier {
   String auditStatus; //审核状态String
 
   @JsonKey(name: 'source')
-  List<String> sourceTag; //tag标签
+  List<String> sourceTags; //tag标签
 
   void update() {
     notifyListeners();
@@ -24,7 +24,7 @@ class CarDetailBean extends ChangeNotifier {
   CarDetailBean(
       {this.selfCarImage = const [],
       this.auditStatus = '',
-      this.sourceTag = const []});
+      this.sourceTags = const []});
 
   ////////////////// fromJson & toJson //////////////////
 

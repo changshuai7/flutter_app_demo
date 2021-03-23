@@ -20,7 +20,7 @@ class _SaasCarDetailInfoState extends State<SaasCarDetailInfo> {
           padding: EdgeInsets.all(16),
           child: Column(
             children: [
-              SourceTags(),
+              SourceTagsWidget(),
             ],
           ),
         );
@@ -29,16 +29,16 @@ class _SaasCarDetailInfoState extends State<SaasCarDetailInfo> {
   }
 }
 
-class SourceTags extends StatelessWidget {
-  List<SourceTagBtn> _generateTags(List<String> sourceList) {
-    return sourceList.map((e) => SourceTagBtn(text: e)).toList();
+class SourceTagsWidget extends StatelessWidget {
+  List<SourceTag> _generateTags(List<String> sourceList) {
+    return sourceList.map((e) => SourceTag(text: e)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Selector<CarDetailBean, List<String>>(
       selector: (BuildContext context, CarDetailBean allData) {
-        return allData.sourceTag;
+        return allData.sourceTags;
       },
       builder: (BuildContext context, List<String> sourceList, Widget child) {
         return Container(
@@ -55,12 +55,12 @@ class SourceTags extends StatelessWidget {
   }
 }
 
-class SourceTagBtn extends StatelessWidget {
+class SourceTag extends StatelessWidget {
   final String text;
   final Color bgColor;
   final Color textColor;
 
-  SourceTagBtn(
+  SourceTag(
       {this.text = '',
       this.bgColor = const Color(0xFFFFEAE0),
       this.textColor = const Color(0xFFFF5F5F)});
