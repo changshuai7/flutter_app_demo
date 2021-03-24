@@ -39,19 +39,7 @@ class _SaasCarDetailBannerState extends State<SaasCarDetailBanner> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  // Navigator.of(context).maybePop();
-                  // context
-                  //     .read<CarDetailBean>()
-                  //     .selfCarImage[0]
-                  //     .value
-                  //     .add('https://www.itying.com/images/flutter/1.png');
-
-                  // context.read<CarDetailBean>().selfCarImage.add(SelfCarImageBean('demo', ['https://www.itying.com/images/flutter/5.png']));
-
-                  // context.read<CarDetailBean>().auditStatus = '';
-                  // context.read<CarDetailBean>().sourceTags.add('hello');
-                  context.read<CarDetailBean>().isContactOwner = true;
-                  context.read<CarDetailBean>().update();
+                  Navigator.of(context).maybePop();
                 }),
           )
         ],
@@ -60,35 +48,75 @@ class _SaasCarDetailBannerState extends State<SaasCarDetailBanner> {
   }
 }
 
+class BannerImg {
+  String name;// 名称
+  String url; // 图片地址
+
+  BannerImg(this.name, this.url);
+
+  @override
+  bool operator ==(Object other) {
+    if (other is BannerImg) {
+      return this.name == other.name && this.url == other.url;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  int get hashCode => name.hashCode + url.hashCode;
+}
+
 class BannerWidget extends StatelessWidget {
+
   /// 获取所有banner图片地址
-  List<String> _getAllBannerDataList(List<SelfCarImageBean> selfCarImage) {
-    List<String> result = [];
+  List<BannerImg> _getAllBannerImgList(List<SelfCarImageBean> selfCarImage) {
+    List<BannerImg> result = [];
     selfCarImage?.forEach((SelfCarImageBean element) {
       element?.value?.forEach((s) {
-        result.add(s);
+        result.add(BannerImg(element.name, s));
       });
     });
     return result;
   }
 
+  /// 比较两个List<BannerImg>是否相等
+  bool _bannerImgListIsEqual(List<BannerImg> pre, List<BannerImg> next) {
+    if (pre == null) return next == null;
+    if (next == null) return pre == null;
+    if (pre.length != next.length) return false;
+    if (pre.length == 0 || next.length == 0) return true; //长度为0，则一定等
+
+    //----  至此 二者length 等，且length > 0 ----//
+    bool isEqual = true;
+    for (var i = 0; i < pre.length; i++) {
+      if (pre[i] != next[i]) {
+        isEqual = false;
+        break;
+      }
+    }
+    return isEqual;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Selector<CarDetailBean, List<String>>(
+    return Selector<CarDetailBean, List<BannerImg>>(
         selector: (context, allData) =>
-            _getAllBannerDataList(allData.selfCarImage),
-        builder:
-            (BuildContext context, List<String> selfCarImage, Widget child) {
+            _getAllBannerImgList(allData.selfCarImage),
+        shouldRebuild: (List<BannerImg> previous, List<BannerImg> next) {
+          return !_bannerImgListIsEqual(previous, next);
+        },
+        builder: (BuildContext context, List<BannerImg> bannerImgList,
+            Widget child) {
           print('BannerWidget - Selector - Builder');
           return Swiper(
             key: UniqueKey(),
-            //https://blog.csdn.net/qq_20342111/article/details/105978460
             pagination: SwiperPagination(
                 alignment: Alignment.bottomRight,
                 builder: CarDetailBannerFractionPaginationBuilder()),
             loop: true,
             autoplay: true,
-            itemCount: selfCarImage.length,
+            itemCount: bannerImgList.length,
             itemBuilder: (context, index) {
               return Container(
                   child: Stack(
@@ -99,7 +127,7 @@ class BannerWidget extends StatelessWidget {
                       width: double.infinity,
                       height: double.infinity,
                       child: Image.network(
-                        selfCarImage[index],
+                        bannerImgList[index].url,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -108,7 +136,7 @@ class BannerWidget extends StatelessWidget {
               ));
             },
             onTap: (index) {
-              print('这是第 $index 张轮播图，图片地址为:${selfCarImage[index]}');
+              print('这是第 $index 张轮播图，图片地址为:${bannerImgList[index].url}');
               //TODO 点击事件，跳转到图片查看器
             },
           );

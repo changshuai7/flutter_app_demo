@@ -16,7 +16,7 @@ class _SaasCarDetailBottomBtnState extends State<SaasCarDetailBottomBtn> {
     return Container(
       color: Colors.white,
       height: 56,
-      padding: EdgeInsets.fromLTRB(16, 5, 16, 5),
+      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Row(
         children: [
           Expanded(
@@ -39,16 +39,23 @@ class _SaasCarDetailBottomBtnState extends State<SaasCarDetailBottomBtn> {
               )),
           Expanded(
             flex: 1,
-            child: RaisedButton(
-              color: Color(0xFFFA8745),
-              textColor: Colors.white,
-              onPressed: () {
-                //TODO  改价点击事件
-                print('改价');
-              },
-              child: Text(
-                '改价',
-                textAlign: TextAlign.center,
+            child: Container(
+              height: double.infinity,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                color: Color(0xFFFA8745),
+                textColor: Colors.white,
+                onPressed: () {
+                  //TODO  改价点击事件
+                  print('改价');
+                },
+                child: Text(
+                  '改价',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -57,16 +64,23 @@ class _SaasCarDetailBottomBtnState extends State<SaasCarDetailBottomBtn> {
           ),
           Expanded(
             flex: 1,
-            child: RaisedButton(
-              color: Color(0xFF58728D),
-              textColor: Colors.white,
-              onPressed: () {
-                //TODO  编辑点击事件
-                print('编辑');
-              },
-              child: Text(
-                '编辑',
-                textAlign: TextAlign.center,
+            child: Container(
+              height: double.infinity,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                color: Color(0xFF58728D),
+                textColor: Colors.white,
+                onPressed: () {
+                  //TODO  改价点击事件
+                  print('改价');
+                },
+                child: Text(
+                  '改价',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
