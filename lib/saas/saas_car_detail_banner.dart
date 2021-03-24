@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:provider/provider.dart';
 
+import 'common/saas_car_detail_gallery_photo_view.dart';
 import 'provider/saas_car_detail_model.dart';
 
 /// Banner Swiper
@@ -32,43 +33,33 @@ class _SaasCarDetailBannerState extends State<SaasCarDetailBanner> {
 
           /// 第三层：顶部返回按钮
           Align(
-            alignment: Alignment(-1.0, -0.8),
-            child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.of(context).maybePop();
-                }),
-          )
+              alignment: Alignment(-1.0, -1.0),
+              child: Container(
+                margin: EdgeInsets.fromLTRB(16, 32, 0, 0),
+                width: 32,
+                height: 32,
+                decoration: ShapeDecoration(
+                    shape: CircleBorder(
+                      side: BorderSide.none,
+                    ),
+                    color: Color(0x5C000000)),
+                child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios_outlined,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).maybePop();
+                    }),
+              ))
         ],
       ),
     );
   }
 }
 
-class BannerImg {
-  String name;// 名称
-  String url; // 图片地址
-
-  BannerImg(this.name, this.url);
-
-  @override
-  bool operator ==(Object other) {
-    if (other is BannerImg) {
-      return this.name == other.name && this.url == other.url;
-    } else {
-      return false;
-    }
-  }
-
-  @override
-  int get hashCode => name.hashCode + url.hashCode;
-}
-
 class BannerWidget extends StatelessWidget {
-
   /// 获取所有banner图片地址
   List<BannerImg> _getAllBannerImgList(List<SelfCarImageBean> selfCarImage) {
     List<BannerImg> result = [];
@@ -137,7 +128,8 @@ class BannerWidget extends StatelessWidget {
             },
             onTap: (index) {
               print('这是第 $index 张轮播图，图片地址为:${bannerImgList[index].url}');
-              //TODO 点击事件，跳转到图片查看器
+              openGalleryPhotoView(context, index,
+                  bannerImgList.map((e) => ImgItem(e.name, e.url)).toList());
             },
           );
         });
@@ -189,7 +181,7 @@ class AuditStatusWidget extends StatelessWidget {
   }
 }
 
-//顶部轮播控制器(SwiperController)
+///Banner 轮播控制器(SwiperController)
 class CarDetailBannerFractionPaginationBuilder extends SwiperPlugin {
   @override
   Widget build(BuildContext context, SwiperPluginConfig config) {
@@ -206,4 +198,24 @@ class CarDetailBannerFractionPaginationBuilder extends SwiperPlugin {
       ),
     );
   }
+}
+
+///Banner 图片
+class BannerImg {
+  String name; // 名称
+  String url; // 图片地址
+
+  BannerImg(this.name, this.url);
+
+  @override
+  bool operator ==(Object other) {
+    if (other is BannerImg) {
+      return this.name == other.name && this.url == other.url;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  int get hashCode => name.hashCode + url.hashCode;
 }
