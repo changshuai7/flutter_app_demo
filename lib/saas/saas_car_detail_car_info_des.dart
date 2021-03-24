@@ -7,7 +7,8 @@ import 'provider/saas_car_detail_model.dart';
 ///车辆车况描述
 class SaasCarDetailCarInfoDes extends StatefulWidget {
   @override
-  _SaasCarDetailCarInfoDesState createState() => _SaasCarDetailCarInfoDesState();
+  _SaasCarDetailCarInfoDesState createState() =>
+      _SaasCarDetailCarInfoDesState();
 }
 
 class _SaasCarDetailCarInfoDesState extends State<SaasCarDetailCarInfoDes> {
@@ -60,7 +61,7 @@ class _SaasCarDetailCarInfoDesState extends State<SaasCarDetailCarInfoDes> {
                       ],
                     ),
                   ),
-                  child:Text(allData.vehicleConditionDescription),
+                  child: Text(allData.vehicleConditionDescription),
                 ),
 
                 SizedBox(

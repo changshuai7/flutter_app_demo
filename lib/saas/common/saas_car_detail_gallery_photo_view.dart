@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
-
-class ImgItem{
-  String name;// 名称
+class ImgItem {
+  String name; // 名称
   String url;
+
   ImgItem(this.name, this.url);
 }
 
 ///打开图片查看器
 ///index：当前图片index，
 ///imgItemList：图片集合
-void openGalleryPhotoView(BuildContext context, final int index,List<ImgItem> imgItemList){
+void openGalleryPhotoView(
+    BuildContext context, final int index, List<ImgItem> imgItemList) {
   Navigator.push(
     context,
     MaterialPageRoute(
@@ -23,12 +24,11 @@ void openGalleryPhotoView(BuildContext context, final int index,List<ImgItem> im
           color: Colors.black,
         ),
         initialIndex: index,
-        scrollDirection:  Axis.horizontal ,
+        scrollDirection: Axis.horizontal,
       ),
     ),
   );
 }
-
 
 class GalleryPhotoViewWrapper extends StatefulWidget {
   GalleryPhotoViewWrapper({
@@ -77,7 +77,6 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
         ),
         child: Stack(
           children: <Widget>[
-
             ///图片展示Widget
             Align(
               alignment: Alignment.center,
@@ -95,7 +94,10 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
 
             ///返回按钮
             Align(
-              alignment: Alignment(-1.0, -0.9,),
+              alignment: Alignment(
+                -1.0,
+                -0.9,
+              ),
               child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
@@ -127,6 +129,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                       height: 15,
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
                           "${_currentIndex + 1}",
@@ -134,23 +137,30 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
                           style: const TextStyle(
                             color: Colors.orangeAccent,
                             fontSize: 22.0,
+                            // backgroundColor: Colors.green,
                           ),
                         ),
-                        Text(
-                          '/',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.0,
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 2),
+                          child: Row(
+                            children: [
+                              Text(
+                                '/',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                              Text(
+                                "${widget.galleryItems.length}",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Text(
-                          "${widget.galleryItems.length}",
-                          textAlign: TextAlign.end,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 12.0,
-                          ),
-                        ),
+                        )
                       ],
                     ),
                     SizedBox(
