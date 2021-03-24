@@ -116,9 +116,10 @@ class SaasCarDetail extends StatelessWidget {
     //
 
 
-    carDetailProvider.auditStatus = '111';
+    // carDetailProvider.auditStatus = '审核中';
     // carDetailProvider.sourceTags.add('hello');
-    // carDetailProvider.isContactOwner = true;
+    carDetailProvider.isContactOwner = true;
+    // carDetailProvider.title= '哈哈哈哈哈哈';
     carDetailProvider.update();
   }
 }

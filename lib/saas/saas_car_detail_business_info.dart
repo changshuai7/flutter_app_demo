@@ -62,7 +62,8 @@ class SourceTagsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Selector<CarDetailBean, List<String>>(
       selector: (BuildContext context, CarDetailBean allData) {
-        return allData.sourceTags;
+        // 巨坑：切勿将共享数据中的引用类型数据直接返回。务必要重新构造数据。
+        return allData.sourceTags.map((e) => e).toList();
       },
       builder: (BuildContext context, List<String> sourceList, Widget child) {
         print('SourceTagsWidget - Selector - Builder');
@@ -113,6 +114,8 @@ class InfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CarDetailBean>(
       builder: (BuildContext context, CarDetailBean allData, Widget child) {
+        print('InfoWidget - Consumer - Builder');
+
         return Container(
           margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
           width: double.infinity,

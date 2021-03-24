@@ -24,6 +24,7 @@ class _SaasCarDetailCarInfoDesState extends State<SaasCarDetailCarInfoDes> {
       padding: EdgeInsets.all(16),
       child: Consumer<CarDetailBean>(
         builder: (BuildContext context, CarDetailBean allData, Widget child) {
+          print('SaasCarDetailCarInfoDes - Consumer - Builder');
           return Container(
             width: double.infinity,
             child: Column(
