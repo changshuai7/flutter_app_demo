@@ -44,7 +44,9 @@ class SaasCarDetail extends StatelessWidget {
       transportTestExpire: '2021年12月2021年12月2021年12月-测试溢出',
       compulsoryInsuranceExpire: '2022年5月',
       vehicleConditionDescription:
-          '该车原厂原漆，外观无瑕疵，外观无更换；灯光系统正常；内饰整洁；电子系统正常；发动机、变速箱工况正常，怠速规律无抖动，转向灵活；综合车况优秀。');
+          '该车原厂原漆，外观无瑕疵，外观无更换；灯光系统正常；内饰整洁；电子系统正常；发动机、变速箱工况正常，怠速规律无抖动，转向灵活；综合车况优秀。',
+      tags: [TagBean('1', '严选车'),TagBean('2', '店长推荐')],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +117,7 @@ class SaasCarDetail extends StatelessWidget {
     // carDetailProvider.auditStatus = '审核中';
     // carDetailProvider.sourceTags.add('hello');
     carDetailProvider.isContactOwner = true;
+    carDetailProvider.tags.add(TagBean('id', '你好'));
     // carDetailProvider.title= '哈哈哈哈哈哈';
     carDetailProvider.update();
   }

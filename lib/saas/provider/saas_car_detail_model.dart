@@ -77,6 +77,9 @@ class CarDetailBean extends ChangeNotifier {
   @JsonKey(name: 'vehicle_condition_description')
   String vehicleConditionDescription; //车况描述
 
+  @JsonKey(name: 'tag')
+  List<TagBean> tags;
+
   void update() {
     notifyListeners();
   }
@@ -105,6 +108,7 @@ class CarDetailBean extends ChangeNotifier {
     this.transportTestExpire = '',
     this.compulsoryInsuranceExpire = '',
     this.vehicleConditionDescription = '',
+    this.tags = const [],
   });
 
   ////////////////// fromJson & toJson //////////////////
@@ -131,4 +135,25 @@ class SelfCarImageBean {
       _$SelfCarImageBeanFromJson(json);
 
   Map<String, dynamic> toJson() => _$SelfCarImageBeanToJson(this);
+}
+
+@JsonSerializable()
+class TagBean {
+
+  @JsonKey(name: 'id')
+  String id;
+
+  @JsonKey(name: 'name')
+  String name;
+
+  TagBean(this.id, this.name);
+
+
+  ////////////////// fromJson & toJson //////////////////
+
+  factory TagBean.fromJson(Map<String, dynamic> json) =>
+      _$TagBeanFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TagBeanToJson(this);
+
 }

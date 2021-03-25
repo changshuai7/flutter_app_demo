@@ -134,23 +134,28 @@ class InfoWidget extends StatelessWidget {
               ),
 
               SizedBox(
-                height: 5,
+                height: 10,
               ),
 
-              /// 位置信息
+              ///Tag信息，位置信息
               Row(
                 children: [
-                  Text(
-                    '${allData.city}',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.orange,
-                    ),
-                  ),
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Colors.orange,
-                  ),
+                  Expanded(child: TagsWidget(),),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on_rounded,
+                        color: Colors.orange,
+                      ),
+                      Text(
+                        '${allData.city}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ],
+                  ), // TagsWidget(),
                 ],
               ),
               SizedBox(
@@ -338,3 +343,74 @@ class InfoWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+
+class TagsWidget extends StatelessWidget {
+
+  List<Tag> _generateTags(List<String> tagList) {
+    List<Tag> list = [];
+    for (int i = 0; i < tagList.length; i++) {
+      list.add(Tag(
+        text: tagList[i],
+        textColor: Color(0xFF90909E),
+        bgColor: Color(0xFFF4F4F7),
+      ));
+    }
+
+    return list;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Selector<CarDetailBean, List<String>>(
+      selector: (BuildContext context, CarDetailBean allData) {
+        // 巨坑：切勿将共享数据中的引用类型数据直接返回。务必要重新构造数据。
+        return allData.tags.map((e) => e.name).toList();
+      },
+      builder: (BuildContext context, List<String> sourceList, Widget child) {
+        print('TagsWidget - Selector - Builder');
+        return Container(
+          width: double.infinity,
+          child: Wrap(
+            alignment: WrapAlignment.start,
+            spacing: 5,
+            runSpacing: 3,
+            children: _generateTags(sourceList),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class Tag extends StatelessWidget {
+  final String text;
+  final Color bgColor;
+  final Color textColor;
+
+  Tag(
+      {this.text = '',
+        this.bgColor = Colors.orangeAccent,
+        this.textColor = Colors.black});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
+      decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+            side: BorderSide.none,
+            borderRadius: BorderRadius.circular(3),
+          ),
+          color: this.bgColor),
+      child: Text(
+        this.text,
+        textAlign: TextAlign.center,
+        style: TextStyle(color: this.textColor, fontSize: 10),
+      ),
+    );
+  }
+}
+

@@ -36,6 +36,9 @@ CarDetailBean _$CarDetailBeanFromJson(Map<String, dynamic> json) {
     compulsoryInsuranceExpire: json['compulsory_insurance_expire'] as String,
     vehicleConditionDescription:
         json['vehicle_condition_description'] as String,
+    tags: (json['tag'] as List<dynamic>)
+        .map((e) => TagBean.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -64,6 +67,7 @@ Map<String, dynamic> _$CarDetailBeanToJson(CarDetailBean instance) =>
       'transport_test_expire': instance.transportTestExpire,
       'compulsory_insurance_expire': instance.compulsoryInsuranceExpire,
       'vehicle_condition_description': instance.vehicleConditionDescription,
+      'tag': instance.tags,
     };
 
 SelfCarImageBean _$SelfCarImageBeanFromJson(Map<String, dynamic> json) {
@@ -77,4 +81,16 @@ Map<String, dynamic> _$SelfCarImageBeanToJson(SelfCarImageBean instance) =>
     <String, dynamic>{
       'name': instance.name,
       'value': instance.value,
+    };
+
+TagBean _$TagBeanFromJson(Map<String, dynamic> json) {
+  return TagBean(
+    json['id'] as String,
+    json['name'] as String,
+  );
+}
+
+Map<String, dynamic> _$TagBeanToJson(TagBean instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
     };
