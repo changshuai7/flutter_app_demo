@@ -177,11 +177,11 @@ class InfoWidget extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          Text(
+                          Expanded(child: Text(
                             '万(展厅价)',
                             style:
-                                TextStyle(color: Colors.orange, fontSize: 14),
-                          ),
+                            TextStyle(color: Colors.orange, fontSize: 14),
+                          ),),
                         ],
                       )),
                   Expanded(
@@ -196,11 +196,13 @@ class InfoWidget extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          Text(
+                          Expanded(child: Text(
                             '万(人人车标价)',
                             style:
-                                TextStyle(color: Colors.orange, fontSize: 14),
+                            TextStyle(color: Colors.orange, fontSize: 14),
                           ),
+                          ),
+
                         ],
                       )),
                 ],
