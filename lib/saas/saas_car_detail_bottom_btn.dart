@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/saas_car_detail_model.dart';
+import 'saas_car_detail_bottom_sheet_change_price.dart';
 
 ///车辆信息数据
 class SaasCarDetailBottomBtn extends StatefulWidget {
@@ -203,6 +204,8 @@ class _SaasCarDetailBottomBtnState extends State<SaasCarDetailBottomBtn> {
                   ],
                 ),
               ),
+
+              /// 上架
               Expanded(
                 flex: 1,
                 child: Container(
@@ -365,199 +368,4 @@ enum BottomPopItemType {
   AbandonSale, //放弃销售
   TransferCar, //转车
   PurchaseInfo, //采购
-}
-
-class ChangePriceBean {
-  String basePrice;
-  String quotedPrice;
-  String remark;
-
-  ChangePriceBean({this.basePrice, this.quotedPrice, this.remark});
-}
-
-/// 底部：改价弹框
-class ChangePriceBottomSheetWidget extends StatefulWidget {
-  @override
-  _ChangePriceBottomSheetWidgetState createState() =>
-      _ChangePriceBottomSheetWidgetState();
-}
-
-class _ChangePriceBottomSheetWidgetState
-    extends State<ChangePriceBottomSheetWidget> {
-  ChangePriceBean bean = ChangePriceBean();
-  TextEditingController _quotedPriceController;
-  TextEditingController _basePriceController;
-  TextEditingController _remarkController;
-
-  String quotedPriceErrorText;
-
-  String basePriceErrorText;
-
-  @override
-  void initState() {
-    super.initState();
-    _quotedPriceController = TextEditingController(text: '');
-    _basePriceController = TextEditingController(text: '');
-    _remarkController = TextEditingController(text: '');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 420,
-      padding: EdgeInsets.fromLTRB(16, 10, 16, 16),
-      child: ListView(
-        children: [
-          Align(
-            child: InkWell(
-              child: Icon(Icons.close),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            alignment: Alignment.bottomRight,
-          ),
-
-          /// 报价
-          Text(
-            '车主报价(万)',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-            controller: _quotedPriceController,
-            decoration: InputDecoration(
-              hintText: '请输入您的报价',
-              errorText: quotedPriceErrorText,
-              suffix: InkWell(
-                child: Icon(
-                  Icons.close,
-                  color: Colors.grey,
-                  size: 15,
-                ),
-                onTap: () {
-                  _quotedPriceController.text = '';
-                },
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-            ),
-          ),
-
-          /// 底价
-          SizedBox(
-            height: 12,
-          ),
-          Text(
-            '车主底价(万)',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-            controller: _basePriceController,
-            decoration: InputDecoration(
-              hintText: '请输入您的底价',
-              errorText: basePriceErrorText,
-              suffix: InkWell(
-                child: Icon(
-                  Icons.close,
-                  color: Colors.grey,
-                  size: 15,
-                ),
-                onTap: () {
-                  _basePriceController.text = '';
-                },
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-            controller: _remarkController,
-            maxLines: 3,
-            decoration: InputDecoration(
-              hintText: '备注',
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFE9EAED), width: 1),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            height: 44,
-            child: RaisedButton(
-              color: Colors.orange,
-              onPressed: () {
-                bean.quotedPrice = _quotedPriceController.text;
-                bean.basePrice = _basePriceController.text;
-                bean.remark = _remarkController.text;
-
-                if (_verify()) {
-                  Navigator.of(context).pop(bean);
-                }
-              },
-              child: Text(
-                '确定',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                ),
-              ),
-              shape: RoundedRectangleBorder(
-                side: BorderSide.none,
-                borderRadius: BorderRadius.circular(5),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _verify() {
-    //TODO 校验规则
-    bool flag = true;
-    if (bean.quotedPrice.length < 3) {
-      flag = false;
-      setState(() {
-        quotedPriceErrorText = '报价长度不够';
-      });
-    }
-    if (bean.basePrice.length < 3) {
-      flag = false;
-      setState(() {
-        basePriceErrorText = '底价长度不够';
-      });
-    }
-    return flag;
-  }
 }
