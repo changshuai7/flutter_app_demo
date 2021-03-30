@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AndroidJS</title>
+    <style type="text/css">
+
+        .box {
+            width: 150px;
+            position: absolute;
+            left: 50%;
+            margin-top: 10px;
+            transform: translateX(-50%);
+        }
+
+        .box div {
+            width: 150px;
+            height: 40px;
+            border: 1px solid #0048ff;
+            background-color: #0048ff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <div id="bt0">
+        <a href="rrc://renrenaiche.cn/?params=我是一条可爱的拦截数据">测试标准拦截URL</a>
+    </div>
+    <div id="bt1">让Flutter执行Toast</div>
+    <div id="bt2">关闭WebView</div>
+
+
+</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        const btn0 = document.getElementById("bt1");
+        const btn1 = document.getElementById("bt2");
+
+        btn0.onclick = function () {
+            flutterShowToast();
+        }
+        btn1.onclick = function () {
+            flutterExitWebView();
+        }
+    }
+
+    // 展示Toast数据
+    function flutterShowToast() {
+        window.show_toast.postMessage('展示一条Toast');
+    }
+
+    // 关闭WebView
+    function flutterExitWebView() {
+        window.exit_web_view.postMessage('关闭WebView');
+    }
+
+
+</script>
