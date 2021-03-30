@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 Set<JavascriptChannel> commonJavascriptChannels(
     BuildContext context, Future<WebViewController> controller) {
   Set<JavascriptChannel> set = {};
-  // 展示一个Toast
+  /// 展示一个Toast
   set.add(JavascriptChannel(
     name: 'show_toast',
     onMessageReceived: (JavascriptMessage message) {
@@ -16,12 +16,19 @@ Set<JavascriptChannel> commonJavascriptChannels(
     },
   ));
 
-  //退出WebView
+  /// 退出WebView
   set.add(JavascriptChannel(
       name: 'exit_web_view',
       onMessageReceived: (JavascriptMessage message) {
         print('exit_web_view收到消息：${message.message}');
         Navigator.of(context).pop();
+      }));
+
+  /// 登录过期
+  set.add(JavascriptChannel(
+      name: 'token_expired',
+      onMessageReceived: (JavascriptMessage message) {
+        print('token_expired收到消息：${message.message}');
       }));
   return set;
 }

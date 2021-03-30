@@ -41,6 +41,7 @@
     </div>
     <div id="bt1">让Flutter执行Toast</div>
     <div id="bt2">关闭WebView</div>
+    <div id="bt3">登录过期</div>
 
 
 </div>
@@ -50,14 +51,18 @@
 
 <script type="text/javascript">
     window.onload = function () {
-        const btn0 = document.getElementById("bt1");
-        const btn1 = document.getElementById("bt2");
+        const btn1 = document.getElementById("bt1");
+        const btn2 = document.getElementById("bt2");
+        const btn3 = document.getElementById("bt3");
 
-        btn0.onclick = function () {
+        btn1.onclick = function () {
             flutterShowToast();
         }
-        btn1.onclick = function () {
+        btn2.onclick = function () {
             flutterExitWebView();
+        }
+        btn3.onclick = function () {
+            flutterTokenExpired();
         }
     }
 
@@ -68,7 +73,11 @@
 
     // 关闭WebView
     function flutterExitWebView() {
-        window.exit_web_view.postMessage('关闭WebView');
+        window.exit_web_view.postMessage('');
+    }
+    // 登录过期
+    function flutterTokenExpired() {
+        window.token_expired.postMessage('');
     }
 
 
