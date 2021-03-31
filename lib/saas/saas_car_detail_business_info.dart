@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'common/saas_car_detail_common_widget.dart';
@@ -264,8 +265,8 @@ class InfoWidget extends StatelessWidget {
                             size: 14,
                           ),
                           onTap: () {
-                            //TODO 复制操作
-                            print('复制数据：${allData.ownVehicleId}');
+                            //复制操作
+                            Clipboard.setData(ClipboardData(text: allData.ownVehicleId));
                           },
                         )
                       ],
@@ -286,8 +287,8 @@ class InfoWidget extends StatelessWidget {
                             size: 14,
                           ),
                           onTap: () {
-                            //TODO  复制操作
-                            print('复制数据：${allData.rrcId}');
+                            //复制操作
+                            Clipboard.setData(ClipboardData(text: allData.rrcId));
                           },
                         )
                       ],
